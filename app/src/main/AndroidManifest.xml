@@ -30,7 +30,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".intruksi"></activity>
+        <activity android:name=".intruksi" />
+        <activity android:name=".changepassword" />
+        <activity android:name=".cas" />
+        <activity android:name=".setup" />
+        <activity android:name=".about"></activity>
     </application>
 
 </manifest>
