@@ -1,7 +1,13 @@
 package id.revolt.advance;
 
+import android.annotation.SuppressLint;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Vibrator;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -10,8 +16,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Set;
 
 
 public class MainActivity extends AppCompatActivity
@@ -19,7 +33,38 @@ public class MainActivity extends AppCompatActivity
 
 //    Button button;
 
+    public Vibrator h;
+
+    //button up-down
+    private ImageButton a1;
+    private ImageButton a2;
+    private ImageButton a3;
+    private ImageButton a4;
+    private ImageButton a5;
+    private ImageButton a6;
+    private ImageButton a7;
+    private ImageButton a8;
+    private ImageButton a9;
+    private ImageButton a10;
+    private ImageButton a11;
+    private ImageButton a12;
+    private ImageButton a13;
+    private ImageButton a14;
+    private ToggleButton btn_bt;
+
+    private TextView e;
+
+    BluetoothAdapter mBluetoothAdapter;
+    BluetoothDevice mmDevice;
+    InputStream mmInputStream;
+    OutputStream mmOutputStream;
+    BluetoothSocket mmSocket;
+    private Set<BluetoothDevice> pairedDevices;
+
+    volatile boolean stopWorker;
+
 //    @Override
+    @SuppressLint("WrongConstant")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -56,6 +101,88 @@ public class MainActivity extends AppCompatActivity
 //                popupMenu.show();
 //            }
 //        });
+
+        this.a1 = (ImageButton) findViewById(R.id.front_left_up);
+        this.a2 = (ImageButton) findViewById(R.id.front_right_up);
+        this.a3 = (ImageButton) findViewById(R.id.front_left_down);
+        this.a4 = (ImageButton) findViewById(R.id.front_right_down);
+        this.a5 = (ImageButton) findViewById(R.id.rear_left_up);
+        this.a6 = (ImageButton) findViewById(R.id.rear_right_up);
+        this.a7 = (ImageButton) findViewById(R.id.rear_left_down);
+        this.a8 = (ImageButton) findViewById(R.id.rear_right_down);
+        this.a9 = (ImageButton) findViewById(R.id.front_all_up);
+        this.a10 = (ImageButton) findViewById(R.id.front_all_down);
+        this.a11 = (ImageButton) findViewById(R.id.rear_all_up);
+        this.a12 = (ImageButton) findViewById(R.id.rear_all_down);
+        this.a13 = (ImageButton) findViewById(R.id.all_up);
+        this.a14 = (ImageButton) findViewById(R.id.all_down);
+        this.e = (TextView) findViewById(R.id.e);
+        this.btn_bt = (ToggleButton) findViewById(R.id.tg_bt);
+        this.mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (this.mBluetoothAdapter == null){
+            Toast.makeText(this, "No bluetooth adapter available",0).show();
+        }
+        if (!this.mBluetoothAdapter.isEnabled()){
+            startActivityForResult(new Intent("android.bluetooth.adapter.action.REQUEST_ENABLE"), 0);
+        }
+
+        this.btn_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (MainActivity.this.btn_bt.isChecked()){
+                    MainActivity.this.a1.setEnabled(true);
+                    MainActivity.this.a2.setEnabled(true);
+                    MainActivity.this.a3.setEnabled(true);
+                    MainActivity.this.a4.setEnabled(true);
+                    MainActivity.this.a5.setEnabled(true);
+                    MainActivity.this.a6.setEnabled(true);
+                    MainActivity.this.a7.setEnabled(true);
+                    MainActivity.this.a8.setEnabled(true);
+                    MainActivity.this.a9.setEnabled(true);
+                    MainActivity.this.a10.setEnabled(true);
+                    MainActivity.this.a12.setEnabled(true);
+                    MainActivity.this.a13.setEnabled(true);
+                    MainActivity.this.a14.setEnabled(true);
+                    MainActivity.this.e.setEnabled(true);
+                    try {
+                        MainActivity.this.startActivityForResult(new Intent(MainActivity.this, list.class), 3);
+                        return;
+                    } catch (Exception e){
+                        e.printStackTrace();
+                        return;
+                    }
+                }
+                MainActivity.this.a1.setEnabled(false);
+                MainActivity.this.a2.setEnabled(false);
+                MainActivity.this.a3.setEnabled(false);
+                MainActivity.this.a4.setEnabled(false);
+                MainActivity.this.a5.setEnabled(false);
+                MainActivity.this.a6.setEnabled(false);
+                MainActivity.this.a7.setEnabled(false);
+                MainActivity.this.a8.setEnabled(false);
+                MainActivity.this.a9.setEnabled(false);
+                MainActivity.this.a10.setEnabled(false);
+                MainActivity.this.a11.setEnabled(false);
+                MainActivity.this.a12.setEnabled(false);
+                MainActivity.this.a13.setEnabled(false);
+                MainActivity.this.a14.setEnabled(false);
+                //MainActivity.this.Z();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            MainActivity.this.closeBT();
+                            MainActivity.this.e.setText(BuildConfig.FLAVOR);
+                        } catch (IOException e){
+                            e.printStackTrace();
+                        }
+                    }
+                }, 1000);
+                MainActivity.this.e.setEnabled(false);
+            }
+        });
+
+
 
     }
 
@@ -116,6 +243,15 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
+    @SuppressLint("WrongConstant")
+    void closeBT() throws IOException{
+        this.e.setText(BuildConfig.FLAVOR);
+        this.stopWorker = true;
+        this.mmOutputStream.close();
+        this.mmInputStream.close();
+        this.mmSocket.close();
+        Toast.makeText(this, "Bluetooth Disconnect", 0).show();
+        this.e.setText(BuildConfig.FLAVOR);
+    }
 
 }

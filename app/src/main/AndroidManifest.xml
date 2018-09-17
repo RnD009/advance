@@ -34,7 +34,8 @@
         <activity android:name=".changepassword" />
         <activity android:name=".cas" />
         <activity android:name=".setup" />
-        <activity android:name=".about"></activity>
+        <activity android:name=".about" />
+        <activity android:name=".list"></activity>
     </application>
 
 </manifest>
