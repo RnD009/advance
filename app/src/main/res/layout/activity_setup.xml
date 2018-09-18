@@ -111,13 +111,12 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.527">
 
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
-                android:textColor="@color/white"
-                android:layout_height="30dp"
-                android:text="Automatic rise the car is turn on"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            <Switch
+                android:id="@+id/switch3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="Automatic rise the car is turn on" />
 
             <RadioGroup
                 android:layout_width="match_parent"

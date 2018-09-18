@@ -14,6 +14,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -63,6 +64,62 @@ public class MainActivity extends AppCompatActivity
 
     volatile boolean stopWorker;
 
+    private View.OnTouchListener ta1 = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            switch (event.getAction()){
+                case R.styleable.View_android_theme:
+                    MainActivity.this.a2.setEnabled(false);
+                    MainActivity.this.a3.setEnabled(false);
+                    MainActivity.this.a4.setEnabled(false);
+                    MainActivity.this.a5.setEnabled(false);
+                    MainActivity.this.a6.setEnabled(false);
+                    MainActivity.this.a7.setEnabled(false);
+                    MainActivity.this.a8.setEnabled(false);
+                    MainActivity.this.a9.setEnabled(false);
+                    MainActivity.this.a10.setEnabled(false);
+                    MainActivity.this.a11.setEnabled(false);
+                    MainActivity.this.a12.setEnabled(false);
+                    MainActivity.this.a13.setEnabled(false);
+                    MainActivity.this.a14.setEnabled(false);
+                    long[] pattern = new long[]{0, 1000, 0, 1000, 0, 1000, 0, 1000, 0};
+                    MainActivity.this.h = (Vibrator) MainActivity.this.getApplicationContext().getSystemService("vibrator");
+                    MainActivity.this.h.vibrate(pattern, -1);
+                    try {
+                        MainActivity.this.fa1();
+                        break;
+                    }catch (IOException e){
+                        e.printStackTrace();
+                        break;
+                    }
+                case R.styleable.View_android_focusable:
+                    MainActivity.this.h.cancel();
+                    MainActivity.this.a2.setEnabled(true);
+                    MainActivity.this.a3.setEnabled(true);
+                    MainActivity.this.a4.setEnabled(true);
+                    MainActivity.this.a5.setEnabled(true);
+                    MainActivity.this.a6.setEnabled(true);
+                    MainActivity.this.a7.setEnabled(true);
+                    MainActivity.this.a8.setEnabled(true);
+                    MainActivity.this.a9.setEnabled(true);
+                    MainActivity.this.a10.setEnabled(true);
+                    MainActivity.this.a11.setEnabled(true);
+                    MainActivity.this.a12.setEnabled(true);
+                    MainActivity.this.a13.setEnabled(true);
+                    MainActivity.this.a14.setEnabled(true);
+                    try {
+                        MainActivity.this.fa15();
+                        break;
+                    }catch (IOException e2){
+                        e2.printStackTrace();
+                        break;
+                    }
+            }
+
+            return true;
+        }
+    };
+
 //    @Override
     @SuppressLint("WrongConstant")
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,36 +128,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-//        button = findViewById(R.id.button);
-//
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                PopupMenu popupMenu = new PopupMenu(MainActivity.this, button);
-//                popupMenu.getMenuInflater().inflate(R.menu.main_menu, popupMenu.getMenu());
-//
-//                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-//                    @Override
-//                    public boolean onMenuItemClick(MenuItem item) {
-//                        switch (item.getItemId()){
-//                            case R.id.pilihan1:
-//                                Toast.makeText(MainActivity.this, "Bluetooth Must Connect", 0).show();
-//                                return true;
-//                            case R.id.pilihan2:
-//                                MainActivity.this.startActivityForResult(new Intent(MainActivity.this, intruksi.class), 4);
-//
-//                            default:
-//                                return false;
-//                        }
-//
-//
-//                    }
-//                });
-//
-//                popupMenu.show();
-//            }
-//        });
 
         this.a1 = (ImageButton) findViewById(R.id.front_left_up);
         this.a2 = (ImageButton) findViewById(R.id.front_right_up);
@@ -119,70 +146,71 @@ public class MainActivity extends AppCompatActivity
         this.e = (TextView) findViewById(R.id.e);
         this.btn_bt = (ToggleButton) findViewById(R.id.tg_bt);
         this.mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        if (this.mBluetoothAdapter == null){
-            Toast.makeText(this, "No bluetooth adapter available",0).show();
+        if (this.mBluetoothAdapter == null) {
+            Toast.makeText(this, "No bluetooth adapter available", 0).show();
         }
-        if (!this.mBluetoothAdapter.isEnabled()){
+        if (!this.mBluetoothAdapter.isEnabled()) {
             startActivityForResult(new Intent("android.bluetooth.adapter.action.REQUEST_ENABLE"), 0);
         }
 
         this.btn_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (MainActivity.this.btn_bt.isChecked()){
-                    MainActivity.this.a1.setEnabled(true);
-                    MainActivity.this.a2.setEnabled(true);
-                    MainActivity.this.a3.setEnabled(true);
-                    MainActivity.this.a4.setEnabled(true);
-                    MainActivity.this.a5.setEnabled(true);
-                    MainActivity.this.a6.setEnabled(true);
-                    MainActivity.this.a7.setEnabled(true);
-                    MainActivity.this.a8.setEnabled(true);
-                    MainActivity.this.a9.setEnabled(true);
-                    MainActivity.this.a10.setEnabled(true);
-                    MainActivity.this.a12.setEnabled(true);
-                    MainActivity.this.a13.setEnabled(true);
-                    MainActivity.this.a14.setEnabled(true);
-                    MainActivity.this.e.setEnabled(true);
-                    try {
-                        MainActivity.this.startActivityForResult(new Intent(MainActivity.this, list.class), 3);
-                        return;
-                    } catch (Exception e){
-                        e.printStackTrace();
-                        return;
-                    }
-                }
-                MainActivity.this.a1.setEnabled(false);
-                MainActivity.this.a2.setEnabled(false);
-                MainActivity.this.a3.setEnabled(false);
-                MainActivity.this.a4.setEnabled(false);
-                MainActivity.this.a5.setEnabled(false);
-                MainActivity.this.a6.setEnabled(false);
-                MainActivity.this.a7.setEnabled(false);
-                MainActivity.this.a8.setEnabled(false);
-                MainActivity.this.a9.setEnabled(false);
-                MainActivity.this.a10.setEnabled(false);
-                MainActivity.this.a11.setEnabled(false);
-                MainActivity.this.a12.setEnabled(false);
-                MainActivity.this.a13.setEnabled(false);
-                MainActivity.this.a14.setEnabled(false);
-                //MainActivity.this.Z();
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
+                try {
+                    if (MainActivity.this.btn_bt.isChecked()){
+                        MainActivity.this.a1.setEnabled(true);
+                        MainActivity.this.a2.setEnabled(true);
+                        MainActivity.this.a3.setEnabled(true);
+                        MainActivity.this.a4.setEnabled(true);
+                        MainActivity.this.a5.setEnabled(true);
+                        MainActivity.this.a6.setEnabled(true);
+                        MainActivity.this.a7.setEnabled(true);
+                        MainActivity.this.a8.setEnabled(true);
+                        MainActivity.this.a9.setEnabled(true);
+                        MainActivity.this.a10.setEnabled(true);
+                        MainActivity.this.a12.setEnabled(true);
+                        MainActivity.this.a13.setEnabled(true);
+                        MainActivity.this.a14.setEnabled(true);
+                        MainActivity.this.e.setEnabled(true);
                         try {
-                            MainActivity.this.closeBT();
-                            MainActivity.this.e.setText(BuildConfig.FLAVOR);
-                        } catch (IOException e){
+                            MainActivity.this.startActivityForResult(new Intent(MainActivity.this, list.class), 3);
+                            return;
+                        }catch (Exception e){
                             e.printStackTrace();
+                            return;
                         }
                     }
-                }, 1000);
-                MainActivity.this.e.setEnabled(false);
+                    MainActivity.this.a1.setEnabled(false);
+                    MainActivity.this.a2.setEnabled(false);
+                    MainActivity.this.a3.setEnabled(false);
+                    MainActivity.this.a4.setEnabled(false);
+                    MainActivity.this.a5.setEnabled(false);
+                    MainActivity.this.a6.setEnabled(false);
+                    MainActivity.this.a7.setEnabled(false);
+                    MainActivity.this.a8.setEnabled(false);
+                    MainActivity.this.a9.setEnabled(false);
+                    MainActivity.this.a10.setEnabled(false);
+                    MainActivity.this.a11.setEnabled(false);
+                    MainActivity.this.a12.setEnabled(false);
+                    MainActivity.this.a13.setEnabled(false);
+                    MainActivity.this.a14.setEnabled(false);
+                    //MainActivity.this.Z();
+                    new Handler().postDelayed(new Runnable() {
+                        public void run() {
+                            try {
+                                MainActivity.this.closeBT();
+                                MainActivity.this.e.setText(BuildConfig.FLAVOR);
+                            } catch (IOException e){
+                                e.printStackTrace();
+                            }
+                        }
+                    }, 1000);
+                    MainActivity.this.e.setEnabled(false);
+                } catch (Exception e2){
+                    e2.printStackTrace();
+                }
             }
         });
-
-
 
     }
 
@@ -197,27 +225,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main, menu);
-//        return true;
-//    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -242,6 +249,13 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+
+    void fa1() throws IOException {
+        this.mmOutputStream.write("[".getBytes());
+    }
+    void fa15() throws IOException {
+        this.mmOutputStream.write("s".getBytes());
+    }
 
     @SuppressLint("WrongConstant")
     void closeBT() throws IOException{
