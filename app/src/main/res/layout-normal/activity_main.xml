@@ -23,7 +23,7 @@
         android:fitsSystemWindows="true"
         app:itemTextAppearance="@style/TextAppearance.AppCompat.Menu"
         app:headerLayout="@layout/nav_header_main"
-        android:background="@drawable/background_menu"
+        android:background="@color/alpha65"
         app:itemTextColor="#fff"
         app:menu="@menu/activity_main_drawer" />
 
