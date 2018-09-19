@@ -23,9 +23,8 @@
         android:fitsSystemWindows="true"
         app:itemTextAppearance="@style/TextAppearance.AppCompat.Menu"
         app:headerLayout="@layout/nav_header_main"
-        android:background="@color/black"
+        android:background="@drawable/background_menu"
         app:itemTextColor="#fff"
         app:menu="@menu/activity_main_drawer" />
 
 </android.support.v4.widget.DrawerLayout>
-

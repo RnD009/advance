@@ -22,21 +22,30 @@
         android:roundIcon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".intruksi" />
-        <activity android:name=".changepassword" />
-        <activity android:name=".cas" />
-        <activity android:name=".setup" />
-        <activity android:name=".about" />
-        <activity android:name=".list" />
-        <activity android:name=".login"></activity>
+        <activity android:name=".intruksi"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".changepassword"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".cas"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".setup"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".about"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".list"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".login"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

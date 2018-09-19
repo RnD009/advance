@@ -42,6 +42,7 @@ public class list extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
         this.bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         final ListView listDevicesFound = (ListView) findViewById(R.id.lv);
         this.btArrayAdapter = new ArrayAdapter(this, 17367043);
