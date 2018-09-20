@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     android:background="@drawable/background_home"
     tools:context=".MainActivity">
 
@@ -195,6 +196,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="220dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <!--button kiri-->
@@ -202,7 +204,6 @@
             android:layout_width="150dp"
             android:layout_height="210dp"
             android:layout_marginRight="5dp"
-            android:layout_marginLeft="25dp"
             android:background="@drawable/bg_front">
 
             <ImageButton
@@ -233,10 +234,10 @@
                 android:alpha="0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.126"
+                app:layout_constraintHorizontal_bias="0.089"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.232" />
+                app:layout_constraintVertical_bias="0.248" />
 
             <ImageButton
                 android:id="@+id/front_right_up"
@@ -269,10 +270,10 @@
                 android:alpha="0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.126"
+                app:layout_constraintHorizontal_bias="0.089"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.716" />
+                app:layout_constraintVertical_bias="0.751" />
 
             <ImageButton
                 android:id="@+id/front_right_down"
@@ -285,19 +286,18 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:alpha="0"
+                android:contentDescription="TODO"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.865"
+                app:layout_constraintHorizontal_bias="0.91"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.716"
-                android:contentDescription="TODO" />
+                app:layout_constraintVertical_bias="0.751" />
 
             <ImageButton
                 android:id="@+id/front_all_down"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
@@ -316,8 +316,7 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="150dp"
             android:layout_height="210dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/bg_rear">
 
             <ImageButton
@@ -348,10 +347,10 @@
                 android:alpha="0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.126"
+                app:layout_constraintHorizontal_bias="0.089"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.232" />
+                app:layout_constraintVertical_bias="0.248" />
 
             <ImageButton
                 android:id="@+id/rear_right_up"
@@ -366,10 +365,10 @@
                 android:alpha="0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.882"
+                app:layout_constraintHorizontal_bias="0.91"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.232" />
+                app:layout_constraintVertical_bias="0.248" />
 
             <ImageButton
                 android:id="@+id/rear_left_down"
@@ -384,10 +383,10 @@
                 android:alpha="0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.126"
+                app:layout_constraintHorizontal_bias="0.089"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.716" />
+                app:layout_constraintVertical_bias="0.751" />
 
             <ImageButton
                 android:id="@+id/rear_right_down"
@@ -402,16 +401,15 @@
                 android:alpha="0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.882"
+                app:layout_constraintHorizontal_bias="0.91"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.716" />
+                app:layout_constraintVertical_bias="0.751" />
 
             <ImageButton
                 android:id="@+id/rear_all_down"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"

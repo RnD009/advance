@@ -1007,6 +1007,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    @SuppressLint("WrongConstant")
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -1014,7 +1015,18 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_cpass) {
-            MainActivity.this.startActivityForResult(new Intent(MainActivity.this, changepassword.class), 4);
+            if (MainActivity.this.sukses){
+                Toast.makeText(MainActivity.this, "Bluetooth Must Connect", 0).show();
+                return true;
+            }
+            try {
+                MainActivity.this.sandi();
+                MainActivity.this.startActivityForResult(new Intent(MainActivity.this, changepassword.class), 2);
+                return true;
+            }catch (IOException e){
+                e.printStackTrace();
+                return true;
+            }
         } else if (id == R.id.nav_cas) {
             MainActivity.this.startActivityForResult(new Intent(MainActivity.this, cas.class), 4);
         } else if (id == R.id.nav_operation) {
@@ -1233,7 +1245,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     void fa4() throws IOException {
-        this.mmOutputStream.write("&".getBytes());
+        this.mmOutputStream.write("$".getBytes());
     }
 
     void fa5() throws IOException {
