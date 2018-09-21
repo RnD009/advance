@@ -24,7 +24,7 @@
         app:itemTextAppearance="@style/TextAppearance.AppCompat.Menu"
         app:headerLayout="@layout/nav_header_main"
         android:background="@color/alpha65"
-        app:itemTextColor="#fff"
+        app:itemTextColor="@color/word"
         app:menu="@menu/activity_main_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

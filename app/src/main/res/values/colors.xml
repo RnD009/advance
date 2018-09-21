@@ -8,4 +8,5 @@
     <color name="basic">#FF6600</color>
     <color name="alpha70">#B3000000</color>
     <color name="alpha65">#A6000000</color>
+    <color name="word">#d2d2d2</color>
 </resources>

@@ -25,16 +25,21 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:background="#000000"
         android:gravity="center"
         android:text="SET-UP"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textColor="@color/white"
+        android:textColor="@color/word"
         android:textSize="14pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView13"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -90,6 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="All down when the car is off"
+                android:textColor="@color/word"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
 
@@ -116,7 +122,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:text="Automatic rise the car is turn on" />
+                android:text="Automatic rise the car is turn on"
+                android:textColor="@color/word"/>
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -128,6 +135,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/word"
                     android:text="Memory 1" />
 
                 <RadioButton
@@ -135,6 +143,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/word"
                     android:text="Memory 2" />
 
                 <RadioButton
@@ -142,6 +151,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:textColor="@color/word"
                     android:text="Memory 3" />
             </RadioGroup>
 
