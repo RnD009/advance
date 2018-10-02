@@ -32,7 +32,7 @@ public class login extends AppCompatActivity {
         public void onClick(View v) {
             Intent intent = new Intent();
             intent.setData(Uri.parse(login.this.pswd.getText().toString()));
-            Toast.makeText(login.this, login.this.pswd.getText().toString(), 0).show();
+            Toast.makeText(login.this, login.this.pswd.getText().toString(), Toast.LENGTH_SHORT).show();
             login.this.setResult(-1, intent);
             login.this.finish();
         }

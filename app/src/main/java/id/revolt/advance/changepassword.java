@@ -32,13 +32,13 @@ public class changepassword extends AppCompatActivity {
             if (changepassword.this.CheckEditText){
                 Intent intent = new Intent();
                 intent.setData(Uri.parse(changepassword.this.pswd.getText().toString()));
-                Toast.makeText(changepassword.this, changepassword.this.pswd.getText().toString(), 0).show();
+                Toast.makeText(changepassword.this, changepassword.this.pswd.getText().toString(), Toast.LENGTH_SHORT).show();
                 changepassword.this.setResult(-1, intent);
                 changepassword.this.finish();
                 return;
 
             }
-            Toast.makeText(changepassword.this, "Please Fill password fields.", 1).show();
+            Toast.makeText(changepassword.this, "Please Fill password fields.", Toast.LENGTH_SHORT).show();
         }
     };
 

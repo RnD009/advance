@@ -875,7 +875,7 @@ public class MainActivity extends AppCompatActivity
     public void onDestroy(){
         super.onDestroy();
         if (this.sukses){
-            Toast.makeText(this, "destroy discon", 0).show();
+            Toast.makeText(this, "destroy discon", Toast.LENGTH_SHORT).show();
             return;
         }
         try {
@@ -924,7 +924,7 @@ public class MainActivity extends AppCompatActivity
         this.btn_bt = (ToggleButton) findViewById(R.id.tg_bt);
         this.mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (this.mBluetoothAdapter == null) {
-            Toast.makeText(this, "No bluetooth adapter available", 0).show();
+            Toast.makeText(this, "No bluetooth adapter available", Toast.LENGTH_SHORT).show();
         }
         if (!this.mBluetoothAdapter.isEnabled()) {
             startActivityForResult(new Intent("android.bluetooth.adapter.action.REQUEST_ENABLE"), 0);
@@ -1016,7 +1016,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_cpass) {
             if (MainActivity.this.sukses){
-                Toast.makeText(MainActivity.this, "Bluetooth Must Connect", 0).show();
+                Toast.makeText(MainActivity.this, "Bluetooth Must Connect", Toast.LENGTH_SHORT).show();
                 return true;
             }
             try {
@@ -1049,7 +1049,7 @@ public class MainActivity extends AppCompatActivity
             if (resultCode == -1){
                 try {
                     this.d = data.getData().toString();
-                    Toast.makeText(this, data.getData().toString(), 0).show();
+                    Toast.makeText(this, data.getData().toString(), Toast.LENGTH_SHORT).show();
                     uji2();
                 }catch (IOException e){
                     e.printStackTrace();
@@ -1083,7 +1083,7 @@ public class MainActivity extends AppCompatActivity
                     this.e.setEnabled(false);
                     this.d = data.getData().toString();
                     uji2();
-                    Toast.makeText(this, "wait 4 second", 0).show();
+                    Toast.makeText(this, "wait 4 second", Toast.LENGTH_LONG).show();
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -1149,7 +1149,7 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         }
-        Toast.makeText(this, "Find Bluetooth", 0).show();
+        Toast.makeText(this, "Find Bluetooth", Toast.LENGTH_SHORT).show();
     }
 
     @SuppressLint("WrongConstant")
@@ -1159,7 +1159,7 @@ public class MainActivity extends AppCompatActivity
         try {
             this.mmSocket.connect();
         }catch (IOException e){
-            Toast.makeText(this, "Bluetooth Connected failed", 0).show();
+            Toast.makeText(this, "Bluetooth Connected failed", Toast.LENGTH_SHORT).show();
             this.fail = true;
             this.btn_bt.setChecked(false);
             startActivity(new Intent(this, MainActivity.class));
@@ -1170,7 +1170,7 @@ public class MainActivity extends AppCompatActivity
             this.mmOutputStream = this.mmSocket.getOutputStream();
             this.mmInputStream = this.mmSocket.getInputStream();
             beginListenForData();
-            Toast.makeText(this, "Bluetooth Connected", 0).show();
+            Toast.makeText(this, "Bluetooth Connected", Toast.LENGTH_SHORT).show();
             startActivityForResult(new Intent(this, login.class), 1);
         }
     }
@@ -1323,7 +1323,7 @@ public class MainActivity extends AppCompatActivity
         this.mmOutputStream.close();
         this.mmInputStream.close();
         this.mmSocket.close();
-        Toast.makeText(this, "Bluetooth Disconnect", 0).show();
+        Toast.makeText(this, "Bluetooth Disconnect", Toast.LENGTH_SHORT).show();
         this.e.setText(BuildConfig.FLAVOR);
     }
 
