@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="@drawable/face01d"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="100dp">
 
         <ImageView
-            android:layout_width="180dp"
-            android:layout_height="60dp"
+            android:layout_width="280dp"
+            android:layout_height="100dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -26,32 +25,16 @@
             android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="0dp"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="0dp" />
 
-        <!--<Button-->
-            <!--android:id="@+id/button"-->
-            <!--android:layout_width="40dp"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:layout_marginBottom="8dp"-->
-            <!--android:layout_marginEnd="8dp"-->
-            <!--android:layout_marginLeft="8dp"-->
-            <!--android:layout_marginRight="8dp"-->
-            <!--android:layout_marginStart="8dp"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:background="@drawable/menus"-->
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintHorizontal_bias="0.026"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toTopOf="parent" />-->
 
     </android.support.constraint.ConstraintLayout>
 
     <!--nilai tekanan-->
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="370dp"
         android:layout_marginHorizontal="15dp"
         android:background="@drawable/bg_indikator">
 
@@ -73,7 +56,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.133" />
 
         <TextView
             android:id="@+id/tv2"
@@ -105,8 +88,8 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="200 psi"
             android:background="@color/black"
+            android:text="200 psi"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -157,9 +140,9 @@
     <!--Bluetooth-->
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:layout_marginHorizontal="70dp"
+        android:layout_height="120dp"
         android:layout_marginBottom="5dp"
+        android:layout_marginHorizontal="150dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/bg_bt">
 
@@ -169,18 +152,22 @@
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="28dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginRight="28dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:alpha="0"
+            android:contentDescription="TODO"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/tg_bt"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="TODO" />
+            app:layout_constraintHorizontal_bias="0.3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ToggleButton
             android:id="@+id/tg_bt"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
@@ -200,27 +187,31 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginLeft="28dp"
+            android:layout_marginRight="8dp"
             android:layout_marginStart="28dp"
             android:layout_marginTop="8dp"
             android:alpha="0"
+            android:contentDescription="TODO"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.7"
             app:layout_constraintStart_toEndOf="@+id/tg_bt"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="TODO" />
+            app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
     <!--button-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="420dp"
         android:gravity="center"
         android:orientation="horizontal">
 
         <!--button kiri-->
         <android.support.constraint.ConstraintLayout
-            android:layout_width="150dp"
-            android:layout_height="210dp"
+            android:layout_width="280dp"
+            android:layout_height="410dp"
             android:layout_marginRight="5dp"
             android:background="@drawable/bg_front">
 
@@ -332,8 +323,8 @@
 
         <!--button kanan-->
         <android.support.constraint.ConstraintLayout
-            android:layout_width="150dp"
-            android:layout_height="210dp"
+            android:layout_width="280dp"
+            android:layout_height="410dp"
             android:layout_marginLeft="5dp"
             android:background="@drawable/bg_rear">
 
@@ -443,6 +434,7 @@
         </android.support.constraint.ConstraintLayout>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="20dp">
@@ -456,15 +448,15 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="130dp"
         android:layout_marginHorizontal="50dp"
 
         android:background="@drawable/bg_memory">
 
         <ImageButton
             android:id="@+id/imageButton6"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
