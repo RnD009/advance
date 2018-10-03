@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,11 +30,12 @@ import java.util.UUID;
 
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener {
 
 //    Button button;
 
     public Vibrator h;
+
 
     //button up-down
     private ImageButton a1;
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity
     private ImageButton a14;
     private ToggleButton btn_bt;
 
+
     String d;
     private TextView e;
     boolean fail;
@@ -69,11 +72,12 @@ public class MainActivity extends AppCompatActivity
     volatile boolean stopWorker;
     boolean sukses;
 
+
     private View.OnTouchListener ta1 = new View.OnTouchListener() {
         @SuppressLint({"WrongConstant", "PrivateResource"})
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case R.styleable.View_android_theme:
                     MainActivity.this.a2.setEnabled(false);
                     MainActivity.this.a3.setEnabled(false);
@@ -94,7 +98,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa1();
                         break;
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                         break;
                     }
@@ -116,7 +120,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa15();
                         break;
-                    }catch (IOException e2){
+                    } catch (IOException e2) {
                         e2.printStackTrace();
                         break;
                     }
@@ -130,7 +134,7 @@ public class MainActivity extends AppCompatActivity
         @SuppressLint("WrongConstant")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case R.styleable.View_android_theme:
                     MainActivity.this.a1.setEnabled(false);
                     MainActivity.this.a3.setEnabled(false);
@@ -151,7 +155,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa2();
                         break;
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                         break;
                     }
@@ -173,7 +177,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa15();
                         break;
-                    }catch (IOException e2){
+                    } catch (IOException e2) {
                         e2.printStackTrace();
                         break;
                     }
@@ -187,7 +191,7 @@ public class MainActivity extends AppCompatActivity
         @SuppressLint("WrongConstant")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case R.styleable.View_android_theme:
                     MainActivity.this.a1.setEnabled(false);
                     MainActivity.this.a2.setEnabled(false);
@@ -208,7 +212,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa3();
                         break;
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                         break;
                     }
@@ -230,7 +234,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa15();
                         break;
-                    }catch (IOException e2){
+                    } catch (IOException e2) {
                         e2.printStackTrace();
                         break;
                     }
@@ -244,7 +248,7 @@ public class MainActivity extends AppCompatActivity
         @SuppressLint("WrongConstant")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case R.styleable.View_android_theme:
                     MainActivity.this.a1.setEnabled(false);
                     MainActivity.this.a2.setEnabled(false);
@@ -265,7 +269,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa4();
                         break;
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                         break;
                     }
@@ -287,7 +291,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa15();
                         break;
-                    }catch (IOException e2){
+                    } catch (IOException e2) {
                         e2.printStackTrace();
                         break;
                     }
@@ -301,7 +305,7 @@ public class MainActivity extends AppCompatActivity
         @SuppressLint("WrongConstant")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case R.styleable.View_android_theme:
                     MainActivity.this.a1.setEnabled(false);
                     MainActivity.this.a2.setEnabled(false);
@@ -322,7 +326,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa5();
                         break;
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                         break;
                     }
@@ -344,7 +348,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa15();
                         break;
-                    }catch (IOException e2){
+                    } catch (IOException e2) {
                         e2.printStackTrace();
                         break;
                     }
@@ -358,7 +362,7 @@ public class MainActivity extends AppCompatActivity
         @SuppressLint("WrongConstant")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case R.styleable.View_android_theme:
                     MainActivity.this.a1.setEnabled(false);
                     MainActivity.this.a2.setEnabled(false);
@@ -379,7 +383,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa6();
                         break;
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                         break;
                     }
@@ -401,7 +405,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa15();
                         break;
-                    }catch (IOException e2){
+                    } catch (IOException e2) {
                         e2.printStackTrace();
                         break;
                     }
@@ -415,7 +419,7 @@ public class MainActivity extends AppCompatActivity
         @SuppressLint("WrongConstant")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case R.styleable.View_android_theme:
                     MainActivity.this.a1.setEnabled(false);
                     MainActivity.this.a2.setEnabled(false);
@@ -436,7 +440,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa7();
                         break;
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                         break;
                     }
@@ -458,7 +462,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa15();
                         break;
-                    }catch (IOException e2){
+                    } catch (IOException e2) {
                         e2.printStackTrace();
                         break;
                     }
@@ -472,7 +476,7 @@ public class MainActivity extends AppCompatActivity
         @SuppressLint("WrongConstant")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case R.styleable.View_android_theme:
                     MainActivity.this.a1.setEnabled(false);
                     MainActivity.this.a2.setEnabled(false);
@@ -493,7 +497,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa8();
                         break;
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                         break;
                     }
@@ -515,7 +519,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa15();
                         break;
-                    }catch (IOException e2){
+                    } catch (IOException e2) {
                         e2.printStackTrace();
                         break;
                     }
@@ -529,7 +533,7 @@ public class MainActivity extends AppCompatActivity
         @SuppressLint("WrongConstant")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case R.styleable.View_android_theme:
                     MainActivity.this.a1.setEnabled(false);
                     MainActivity.this.a2.setEnabled(false);
@@ -550,7 +554,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa9();
                         break;
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                         break;
                     }
@@ -572,7 +576,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa15();
                         break;
-                    }catch (IOException e2){
+                    } catch (IOException e2) {
                         e2.printStackTrace();
                         break;
                     }
@@ -586,7 +590,7 @@ public class MainActivity extends AppCompatActivity
         @SuppressLint("WrongConstant")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case R.styleable.View_android_theme:
                     MainActivity.this.a1.setEnabled(false);
                     MainActivity.this.a2.setEnabled(false);
@@ -607,7 +611,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa10();
                         break;
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                         break;
                     }
@@ -629,7 +633,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa15();
                         break;
-                    }catch (IOException e2){
+                    } catch (IOException e2) {
                         e2.printStackTrace();
                         break;
                     }
@@ -643,7 +647,7 @@ public class MainActivity extends AppCompatActivity
         @SuppressLint("WrongConstant")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case R.styleable.View_android_theme:
                     MainActivity.this.a1.setEnabled(false);
                     MainActivity.this.a2.setEnabled(false);
@@ -664,7 +668,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa11();
                         break;
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                         break;
                     }
@@ -686,7 +690,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa15();
                         break;
-                    }catch (IOException e2){
+                    } catch (IOException e2) {
                         e2.printStackTrace();
                         break;
                     }
@@ -700,7 +704,7 @@ public class MainActivity extends AppCompatActivity
         @SuppressLint("WrongConstant")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case R.styleable.View_android_theme:
                     MainActivity.this.a1.setEnabled(false);
                     MainActivity.this.a2.setEnabled(false);
@@ -721,7 +725,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa12();
                         break;
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                         break;
                     }
@@ -743,7 +747,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa15();
                         break;
-                    }catch (IOException e2){
+                    } catch (IOException e2) {
                         e2.printStackTrace();
                         break;
                     }
@@ -757,7 +761,7 @@ public class MainActivity extends AppCompatActivity
         @SuppressLint("WrongConstant")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case R.styleable.View_android_theme:
                     MainActivity.this.a1.setEnabled(false);
                     MainActivity.this.a2.setEnabled(false);
@@ -778,7 +782,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa13();
                         break;
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                         break;
                     }
@@ -800,7 +804,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa15();
                         break;
-                    }catch (IOException e2){
+                    } catch (IOException e2) {
                         e2.printStackTrace();
                         break;
                     }
@@ -814,7 +818,7 @@ public class MainActivity extends AppCompatActivity
         @SuppressLint("WrongConstant")
         @Override
         public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()){
+            switch (event.getAction()) {
                 case R.styleable.View_android_theme:
                     MainActivity.this.a1.setEnabled(false);
                     MainActivity.this.a2.setEnabled(false);
@@ -835,7 +839,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa14();
                         break;
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         e.printStackTrace();
                         break;
                     }
@@ -857,7 +861,7 @@ public class MainActivity extends AppCompatActivity
                     try {
                         MainActivity.this.fa15();
                         break;
-                    }catch (IOException e2){
+                    } catch (IOException e2) {
                         e2.printStackTrace();
                         break;
                     }
@@ -871,16 +875,15 @@ public class MainActivity extends AppCompatActivity
     Thread workerThread;
 
     //onDestroy
-    @SuppressLint("WrongConstant")
-    public void onDestroy(){
+    public void onDestroy() {
         super.onDestroy();
-        if (this.sukses){
+        if (this.sukses) {
             Toast.makeText(this, "destroy discon", Toast.LENGTH_SHORT).show();
             return;
         }
         try {
             Z();
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
         new Handler().postDelayed(new Runnable() {
@@ -888,7 +891,7 @@ public class MainActivity extends AppCompatActivity
             public void run() {
                 try {
                     MainActivity.this.closeBT();
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -896,8 +899,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-//    @Override
-    @SuppressLint("WrongConstant")
+    //    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -922,6 +924,7 @@ public class MainActivity extends AppCompatActivity
         this.a14 = (ImageButton) findViewById(R.id.all_down);
         this.e = (TextView) findViewById(R.id.e);
         this.btn_bt = (ToggleButton) findViewById(R.id.tg_bt);
+
         this.mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (this.mBluetoothAdapter == null) {
             Toast.makeText(this, "No bluetooth adapter available", Toast.LENGTH_SHORT).show();
@@ -934,7 +937,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 try {
-                    if (MainActivity.this.btn_bt.isChecked()){
+                    if (MainActivity.this.btn_bt.isChecked()) {
                         MainActivity.this.a1.setEnabled(true);
                         MainActivity.this.a2.setEnabled(true);
                         MainActivity.this.a3.setEnabled(true);
@@ -948,11 +951,12 @@ public class MainActivity extends AppCompatActivity
                         MainActivity.this.a12.setEnabled(true);
                         MainActivity.this.a13.setEnabled(true);
                         MainActivity.this.a14.setEnabled(true);
+
                         MainActivity.this.e.setEnabled(true);
                         try {
                             MainActivity.this.startActivityForResult(new Intent(MainActivity.this, list.class), 3);
                             return;
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             e.printStackTrace();
                             return;
                         }
@@ -971,19 +975,20 @@ public class MainActivity extends AppCompatActivity
                     MainActivity.this.a12.setEnabled(false);
                     MainActivity.this.a13.setEnabled(false);
                     MainActivity.this.a14.setEnabled(false);
+
                     MainActivity.this.Z();
                     new Handler().postDelayed(new Runnable() {
                         public void run() {
                             try {
                                 MainActivity.this.closeBT();
                                 MainActivity.this.e.setText(BuildConfig.FLAVOR);
-                            } catch (IOException e){
+                            } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         }
                     }, 1000);
                     MainActivity.this.e.setEnabled(false);
-                } catch (Exception e2){
+                } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
@@ -992,7 +997,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     //end onCreate
-
 
 
     //menu
@@ -1007,7 +1011,6 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    @SuppressLint("WrongConstant")
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -1015,7 +1018,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_cpass) {
-            if (MainActivity.this.sukses){
+            if (MainActivity.this.sukses) {
                 Toast.makeText(MainActivity.this, "Bluetooth Must Connect", Toast.LENGTH_SHORT).show();
                 return true;
             }
@@ -1023,7 +1026,7 @@ public class MainActivity extends AppCompatActivity
                 MainActivity.this.sandi();
                 MainActivity.this.startActivityForResult(new Intent(MainActivity.this, changepassword.class), 2);
                 return true;
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
                 return true;
             }
@@ -1043,28 +1046,27 @@ public class MainActivity extends AppCompatActivity
     }
 
     //onActifityResult
-    @SuppressLint("WrongConstant")
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        if (requestCode == 1){
-            if (resultCode == -1){
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if (resultCode == -1) {
                 try {
                     this.d = data.getData().toString();
                     Toast.makeText(this, data.getData().toString(), Toast.LENGTH_SHORT).show();
                     uji2();
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            if (requestCode == 0){
+            if (requestCode == 0) {
                 try {
                     closeBT();
                     this.btn_bt.setChecked(false);
-                }catch (IOException e2){
+                } catch (IOException e2) {
                     e2.printStackTrace();
                 }
             }
-        } else if (requestCode == 2){
-            if (resultCode == -1){
+        } else if (requestCode == 2) {
+            if (resultCode == -1) {
                 try {
                     this.a1.setEnabled(false);
                     this.a2.setEnabled(false);
@@ -1080,6 +1082,7 @@ public class MainActivity extends AppCompatActivity
                     this.a12.setEnabled(false);
                     this.a13.setEnabled(false);
                     this.a14.setEnabled(false);
+
                     this.e.setEnabled(false);
                     this.d = data.getData().toString();
                     uji2();
@@ -1103,48 +1106,49 @@ public class MainActivity extends AppCompatActivity
                                 MainActivity.this.a12.setEnabled(true);
                                 MainActivity.this.a13.setEnabled(true);
                                 MainActivity.this.a14.setEnabled(true);
+
                                 MainActivity.this.e.setEnabled(true);
-                            }catch (IOException e){
+                            } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         }
                     }, 4000);
-                }catch (IOException e22){
+                } catch (IOException e22) {
                     e22.printStackTrace();
                 }
             }
-            if (resultCode == 0){
+            if (resultCode == 0) {
                 try {
                     gagal();
-                }catch (IOException e222){
+                } catch (IOException e222) {
                     e222.printStackTrace();
                 }
             }
-        } else if (requestCode != 3){
+        } else if (requestCode != 3) {
         } else {
-            if (resultCode == -1){
+            if (resultCode == -1) {
                 try {
                     this.d = data.getData().toString();
                     findBT2();
                     openBT();
-                } catch (IOException e2222){
+                } catch (IOException e2222) {
                     e2222.printStackTrace();
                 }
-            }else if(resultCode == 0){
+            } else if (resultCode == 0) {
                 this.btn_bt.setChecked(false);
             }
         }
     }
 
-    @SuppressLint("WrongConstant")
-    void findBT2(){
+
+    void findBT2() {
         Set<BluetoothDevice> pairedDevices = this.mBluetoothAdapter.getBondedDevices();
-        if (pairedDevices.size() > 0){
-            for (BluetoothDevice device : pairedDevices){
-                if (device.getName().equals("REVOLT")){
+        if (pairedDevices.size() > 0) {
+            for (BluetoothDevice device : pairedDevices) {
+                if (device.getName().equals("REVOLT")) {
                     this.mmDevice = device;
                     Log.v("ArduinoBT", "findBT found device named" + this.mmDevice.getName());
-                    Log.v("ArduinoBT", "device address is" +this.mmDevice.getAddress());
+                    Log.v("ArduinoBT", "device address is" + this.mmDevice.getAddress());
                     break;
                 }
             }
@@ -1152,20 +1156,20 @@ public class MainActivity extends AppCompatActivity
         Toast.makeText(this, "Find Bluetooth", Toast.LENGTH_SHORT).show();
     }
 
-    @SuppressLint("WrongConstant")
+
     void openBT() throws IOException {
-        this.mmSocket = this.mmDevice.createRfcommSocketToServiceRecord (UUID.fromString("00001101-0000-1000-8000-00805f9b34fb"));
+        this.mmSocket = this.mmDevice.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805f9b34fb"));
         this.mBluetoothAdapter.cancelDiscovery();
         try {
             this.mmSocket.connect();
-        }catch (IOException e){
+        } catch (IOException e) {
             Toast.makeText(this, "Bluetooth Connected failed", Toast.LENGTH_SHORT).show();
             this.fail = true;
             this.btn_bt.setChecked(false);
             startActivity(new Intent(this, MainActivity.class));
             finish();
         }
-        if (!this.fail){
+        if (!this.fail) {
             this.sukses = false;
             this.mmOutputStream = this.mmSocket.getOutputStream();
             this.mmInputStream = this.mmSocket.getInputStream();
@@ -1175,7 +1179,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    void beginListenForData(){
+    void beginListenForData() {
         this.a1.setOnTouchListener(this.ta1);
         this.a2.setOnTouchListener(this.ta2);
         this.a3.setOnTouchListener(this.ta3);
@@ -1190,6 +1194,7 @@ public class MainActivity extends AppCompatActivity
         this.a12.setOnTouchListener(this.ta12);
         this.a13.setOnTouchListener(this.ta13);
         this.a14.setOnTouchListener(this.ta14);
+
         final Handler handler = new Handler();
         this.stopWorker = false;
         this.readBufferPosition = 0;
@@ -1197,22 +1202,24 @@ public class MainActivity extends AppCompatActivity
         this.workerThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                while (!Thread.currentThread().isInterrupted() && !MainActivity.this.stopWorker){
+                while (!Thread.currentThread().isInterrupted() && !MainActivity.this.stopWorker) {
                     try {
                         int byteAvailable = MainActivity.this.mmInputStream.available();
-                        if (byteAvailable > 0){
+                        if (byteAvailable > 0) {
                             byte[] packetBytes = new byte[byteAvailable];
                             MainActivity.this.mmInputStream.read(packetBytes);
-                            for (int i = 0; i< byteAvailable; i++){
+                            for (int i = 0; i < byteAvailable; i++) {
                                 byte b = packetBytes[i];
-                                if (b == (byte) 10){
+                                if (b == (byte) 10) {
                                     byte[] encodedBytes = new byte[MainActivity.this.readBufferPosition];
-                                    System.arraycopy(MainActivity.this.readBuffer, 0, encodedBytes,0, encodedBytes.length);
+                                    System.arraycopy(MainActivity.this.readBuffer, 0, encodedBytes, 0, encodedBytes.length);
                                     final String data = new String(encodedBytes, "US-ASCII");
                                     MainActivity.this.readBufferPosition = 0;
                                     handler.post(new Runnable() {
                                         @Override
-                                        public void run() {MainActivity.this.e.setText(data); }
+                                        public void run() {
+                                            MainActivity.this.e.setText(data);
+                                        }
                                     });
                                 } else {
                                     byte[] bArr = MainActivity.this.readBuffer;
@@ -1223,7 +1230,7 @@ public class MainActivity extends AppCompatActivity
                                 }
                             }
                         }
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         MainActivity.this.stopWorker = true;
                     }
                 }
@@ -1316,8 +1323,8 @@ public class MainActivity extends AppCompatActivity
         this.mmOutputStream.write("w".getBytes());
     }
 
-    @SuppressLint("WrongConstant")
-    void closeBT() throws IOException{
+
+    void closeBT() throws IOException {
         this.e.setText(BuildConfig.FLAVOR);
         this.stopWorker = true;
         this.mmOutputStream.close();

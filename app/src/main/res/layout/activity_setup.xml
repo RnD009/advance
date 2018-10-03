@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/face0"
-    tools:context=".intruksi">
+    android:background="@drawable/face0">
 
 
     <ImageView
@@ -43,9 +42,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
-        android:layout_marginHorizontal="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -66,21 +65,14 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.259">
 
-            <!--<TextView-->
-            <!--android:id="@+id/textView"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="TextView"-->
-            <!--tools:layout_editor_absoluteX="163dp"-->
-            <!--tools:layout_editor_absoluteY="146dp" />-->
 
             <Switch
                 android:id="@+id/switch1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="All down when the car is off"
-                android:textColor="@color/word"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/word" />
 
 
         </LinearLayout>
@@ -105,9 +97,9 @@
                 android:id="@+id/switch3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:text="Automatic rise the car is turn on"
-                android:textColor="@color/word"/>
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/word" />
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -119,24 +111,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/word"
-                    android:text="Memory 1" />
+                    android:text="Memory 1"
+                    android:textColor="@color/word" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/word"
-                    android:text="Memory 2" />
+                    android:text="Memory 2"
+                    android:textColor="@color/word" />
 
                 <RadioButton
                     android:id="@+id/radioButton3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="@color/word"
-                    android:text="Memory 3" />
+                    android:text="Memory 3"
+                    android:textColor="@color/word" />
             </RadioGroup>
 
         </LinearLayout>
