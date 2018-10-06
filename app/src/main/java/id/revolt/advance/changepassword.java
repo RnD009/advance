@@ -14,7 +14,7 @@ public class changepassword extends AppCompatActivity {
     boolean CheckEditText;
     private Button cancel;
     private Button oke;
-    private TextView pswd;
+    private TextView cpswd;
 
     private View.OnClickListener cancel1 = new View.OnClickListener() {
         @Override
@@ -30,8 +30,8 @@ public class changepassword extends AppCompatActivity {
             changepassword.this.CheckeditTextEmptyOrNot();
             if (changepassword.this.CheckEditText){
                 Intent intent = new Intent();
-                intent.setData(Uri.parse(changepassword.this.pswd.getText().toString()));
-                Toast.makeText(changepassword.this, changepassword.this.pswd.getText().toString(), Toast.LENGTH_SHORT).show();
+                intent.setData(Uri.parse(changepassword.this.cpswd.getText().toString()));
+                Toast.makeText(changepassword.this, changepassword.this.cpswd.getText().toString(), Toast.LENGTH_SHORT).show();
                 changepassword.this.setResult(-1, intent);
                 changepassword.this.finish();
                 return;
@@ -48,16 +48,17 @@ public class changepassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_changepassword);
+
         this.oke = (Button) findViewById(R.id.btn_ok);
         this.cancel = (Button) findViewById(R.id.btn_cancel);
-        this.pswd = (TextView) findViewById(R.id.txt_password);
+        this.cpswd = (TextView) findViewById(R.id.txt_cpassword);
         this.cancel.setOnClickListener(this.cancel1);
         this.oke.setOnClickListener(this.oke1);
 
     }
 
     public void CheckeditTextEmptyOrNot(){
-        String NameDholder = this.pswd.getText().toString().trim();
+        String NameDholder = this.cpswd.getText().toString().trim();
         if (TextUtils.isEmpty(NameDholder) || NameDholder.length()< 5){
             this.CheckEditText = false;
         }else {
