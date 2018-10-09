@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -1031,7 +1032,18 @@ public class MainActivity extends AppCompatActivity
                 return true;
             }
         } else if (id == R.id.nav_cas) {
-            MainActivity.this.startActivityForResult(new Intent(MainActivity.this, cas.class), 4);
+            if (MainActivity.this.sukses) {
+                Toast.makeText(MainActivity.this, "Bluetooth Must Connect", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            try {
+                MainActivity.this.back();
+                MainActivity.this.startActivityForResult(new Intent(MainActivity.this, cas.class), 4);
+                return true;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return true;
+            }
         } else if (id == R.id.nav_operation) {
             MainActivity.this.startActivityForResult(new Intent(MainActivity.this, intruksi.class), 4);
         } else if (id == R.id.nav_setup) {
@@ -1124,7 +1136,19 @@ public class MainActivity extends AppCompatActivity
                     e222.printStackTrace();
                 }
             }
-        } else if (requestCode != 3) {
+        }else if (requestCode == 4){
+            if (resultCode == 1) {
+                try {
+                    this.d = data.getData().toString();
+                    Toast.makeText(this, data.getData().toString(), Toast.LENGTH_SHORT).show();
+                    kalibrasi();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        else if (requestCode != 3) {
         } else {
             if (resultCode == -1) {
                 try {
@@ -1306,6 +1330,9 @@ public class MainActivity extends AppCompatActivity
     void uji2() throws IOException {
         this.mmOutputStream.write(this.d.getBytes());
     }
+    void kalibrasi() throws IOException {
+        this.mmOutputStream.write(this.d.getBytes());
+    }
 
     void sandi() throws IOException {
         this.mmOutputStream.write("Z".getBytes());
@@ -1327,6 +1354,7 @@ public class MainActivity extends AppCompatActivity
     void closeBT() throws IOException {
         this.e.setText(BuildConfig.FLAVOR);
         this.stopWorker = true;
+        this.sukses = true;
         this.mmOutputStream.close();
         this.mmInputStream.close();
         this.mmSocket.close();
