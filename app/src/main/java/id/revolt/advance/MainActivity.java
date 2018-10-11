@@ -18,25 +18,26 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.io.DataOutputStream;
 import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Set;
 import java.util.UUID;
+import java.util.zip.CheckedOutputStream;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-//    Button button;
 
     public Vibrator h;
-
 
     //button up-down
     private ImageButton a1;
@@ -54,7 +55,10 @@ public class MainActivity extends AppCompatActivity
     private ImageButton a13;
     private ImageButton a14;
     private ToggleButton btn_bt;
-
+    private ImageButton alldown;
+    private ImageButton mem1;
+    private ImageButton mem2;
+    private ImageButton mem3;
 
     String d;
     private TextView e;
@@ -900,7 +904,81 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    private View.OnClickListener alldown1 = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (btn_bt.isChecked()) {
+                Toast.makeText(MainActivity.this, "All down", Toast.LENGTH_SHORT).show();
+                try {
+                    ad();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+            }
+
+        }
+    };
+
+    private View.OnClickListener Ocmem1 = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (btn_bt.isChecked()){
+                Toast.makeText(MainActivity.this, "Open memory 1", Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
+    private View.OnClickListener Ocmem2 = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (btn_bt.isChecked()){
+                Toast.makeText(MainActivity.this, "Open memory 2", Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
+    private View.OnClickListener Ocmem3 = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (btn_bt.isChecked()){
+                Toast.makeText(MainActivity.this, "Open memory 3", Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+
+    private View.OnLongClickListener Olcmem1 = new View.OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View v) {
+            if (btn_bt.isChecked()) {
+                Toast.makeText(MainActivity.this, "Set memory 1", Toast.LENGTH_SHORT).show();
+            }
+            return false;
+        }
+    };
+
+    private View.OnLongClickListener Olcmem2 = new View.OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View v) {
+            if (btn_bt.isChecked()) {
+                Toast.makeText(MainActivity.this, "Set memory 2", Toast.LENGTH_SHORT).show();
+            }
+            return false;
+        }
+    };
+
+    private View.OnLongClickListener Olcmem3 = new View.OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View v) {
+            if (btn_bt.isChecked()) {
+                Toast.makeText(MainActivity.this, "Set memory 3", Toast.LENGTH_SHORT).show();
+            }
+            return false;
+        }
+    };
+
     //    @Override
+    @SuppressLint("WrongViewCast")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -925,6 +1003,19 @@ public class MainActivity extends AppCompatActivity
         this.a14 = (ImageButton) findViewById(R.id.all_down);
         this.e = (TextView) findViewById(R.id.e);
         this.btn_bt = (ToggleButton) findViewById(R.id.tg_bt);
+        this.alldown = (ImageButton) findViewById(R.id.btn_alldown);
+        this.mem1 = (ImageButton) findViewById(R.id.btn_mem1);
+        this.mem2 = (ImageButton) findViewById(R.id.btn_mem2);
+        this.mem3 = (ImageButton) findViewById(R.id.btn_mem3);
+
+        this.alldown.setOnClickListener(this.alldown1);
+        this.mem1.setOnLongClickListener(this.Olcmem1);
+        this.mem2.setOnLongClickListener(this.Olcmem2);
+        this.mem3.setOnLongClickListener(this.Olcmem3);
+
+        this.mem1.setOnClickListener(this.Ocmem1);
+        this.mem2.setOnClickListener(this.Ocmem2);
+        this.mem3.setOnClickListener(this.Ocmem3);
 
         this.mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (this.mBluetoothAdapter == null) {
@@ -933,6 +1024,7 @@ public class MainActivity extends AppCompatActivity
         if (!this.mBluetoothAdapter.isEnabled()) {
             startActivityForResult(new Intent("android.bluetooth.adapter.action.REQUEST_ENABLE"), 0);
         }
+
 
         this.btn_bt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -952,6 +1044,7 @@ public class MainActivity extends AppCompatActivity
                         MainActivity.this.a12.setEnabled(true);
                         MainActivity.this.a13.setEnabled(true);
                         MainActivity.this.a14.setEnabled(true);
+                        MainActivity.this.alldown.setEnabled(true);
 
                         MainActivity.this.e.setEnabled(true);
                         try {
@@ -976,6 +1069,8 @@ public class MainActivity extends AppCompatActivity
                     MainActivity.this.a12.setEnabled(false);
                     MainActivity.this.a13.setEnabled(false);
                     MainActivity.this.a14.setEnabled(false);
+                    MainActivity.this.alldown.setEnabled(false);
+
 
                     MainActivity.this.Z();
                     new Handler().postDelayed(new Runnable() {
@@ -1012,7 +1107,6 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -1035,21 +1129,24 @@ public class MainActivity extends AppCompatActivity
             if (MainActivity.this.sukses) {
                 Toast.makeText(MainActivity.this, "Bluetooth Must Connect", Toast.LENGTH_SHORT).show();
                 return true;
-            }
-            try {
-                MainActivity.this.back();
+            } else {
                 MainActivity.this.startActivityForResult(new Intent(MainActivity.this, cas.class), 4);
-                return true;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return true;
             }
+
         } else if (id == R.id.nav_operation) {
-            MainActivity.this.startActivityForResult(new Intent(MainActivity.this, intruksi.class), 4);
+            Intent intent = new Intent(MainActivity.this, intruksi.class);
+            startActivity(intent);
         } else if (id == R.id.nav_setup) {
-            MainActivity.this.startActivityForResult(new Intent(MainActivity.this, setup.class), 4);
+            if (MainActivity.this.sukses) {
+                Toast.makeText(MainActivity.this, "Bluetooth Must Connect", Toast.LENGTH_SHORT).show();
+                return true;
+            } else {
+                MainActivity.this.startActivityForResult(new Intent(MainActivity.this, setup.class), 5);
+            }
+
         } else if (id == R.id.nav_about) {
-            MainActivity.this.startActivityForResult(new Intent(MainActivity.this, about.class), 4);
+            Intent intent = new Intent(MainActivity.this, about.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -1077,6 +1174,7 @@ public class MainActivity extends AppCompatActivity
                     e2.printStackTrace();
                 }
             }
+
         } else if (requestCode == 2) {
             if (resultCode == -1) {
                 try {
@@ -1094,6 +1192,7 @@ public class MainActivity extends AppCompatActivity
                     this.a12.setEnabled(false);
                     this.a13.setEnabled(false);
                     this.a14.setEnabled(false);
+
 
                     this.e.setEnabled(false);
                     this.d = data.getData().toString();
@@ -1136,19 +1235,35 @@ public class MainActivity extends AppCompatActivity
                     e222.printStackTrace();
                 }
             }
-        }else if (requestCode == 4){
+        } else if (requestCode == 4) {
             if (resultCode == 1) {
                 try {
                     this.d = data.getData().toString();
-                    Toast.makeText(this, data.getData().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Wait a moment", Toast.LENGTH_SHORT).show();
                     kalibrasi();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-        }
-
-        else if (requestCode != 3) {
+        } else if (requestCode == 5) {
+            if (resultCode == 1) {
+                try {
+                    this.d = data.getData().toString();
+                    Toast.makeText(MainActivity.this, "Compressor ON", Toast.LENGTH_SHORT).show();
+                    sw();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else if (resultCode == 2) {
+                try {
+                    this.d = data.getData().toString();
+                    Toast.makeText(MainActivity.this, "Compressor OFF", Toast.LENGTH_SHORT).show();
+                    sw();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        } else if (requestCode != 3) {
         } else {
             if (resultCode == -1) {
                 try {
@@ -1218,6 +1333,7 @@ public class MainActivity extends AppCompatActivity
         this.a12.setOnTouchListener(this.ta12);
         this.a13.setOnTouchListener(this.ta13);
         this.a14.setOnTouchListener(this.ta14);
+
 
         final Handler handler = new Handler();
         this.stopWorker = false;
@@ -1330,7 +1446,12 @@ public class MainActivity extends AppCompatActivity
     void uji2() throws IOException {
         this.mmOutputStream.write(this.d.getBytes());
     }
+
     void kalibrasi() throws IOException {
+        this.mmOutputStream.write(this.d.getBytes());
+    }
+
+    void sw() throws IOException {
         this.mmOutputStream.write(this.d.getBytes());
     }
 
@@ -1346,8 +1467,24 @@ public class MainActivity extends AppCompatActivity
         this.mmOutputStream.write("y".getBytes());
     }
 
-    void back() throws IOException {
-        this.mmOutputStream.write("w".getBytes());
+//    void back() throws IOException {
+//        this.mmOutputStream.write("w".getBytes());
+//    }
+
+    void ad() throws IOException {
+        this.mmOutputStream.write(";".getBytes());
+    }
+
+    void mem1() throws IOException {
+        this.mmOutputStream.write("[".getBytes());
+    }
+
+    void mem2() throws IOException {
+        this.mmOutputStream.write("]".getBytes());
+    }
+
+    void mem3() throws IOException {
+        this.mmOutputStream.write(">".getBytes());
     }
 
 
@@ -1361,5 +1498,6 @@ public class MainActivity extends AppCompatActivity
         Toast.makeText(this, "Bluetooth Disconnect", Toast.LENGTH_SHORT).show();
         this.e.setText(BuildConfig.FLAVOR);
     }
+
 
 }

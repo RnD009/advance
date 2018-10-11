@@ -463,7 +463,7 @@
         android:background="@drawable/bg_memory">
 
         <ImageButton
-            android:id="@+id/imageButton6"
+            android:id="@+id/btn_mem1"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginBottom="8dp"
@@ -481,7 +481,7 @@
             app:layout_constraintVertical_bias="0.454" />
 
         <ImageButton
-            android:id="@+id/imageButton9"
+            android:id="@+id/btn_mem2"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginBottom="8dp"
@@ -499,7 +499,7 @@
             app:layout_constraintVertical_bias="0.454" />
 
         <ImageButton
-            android:id="@+id/imageButton8"
+            android:id="@+id/btn_mem3"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginBottom="8dp"
@@ -517,7 +517,7 @@
             app:layout_constraintVertical_bias="0.454" />
 
         <ImageButton
-            android:id="@+id/imageButton7"
+            android:id="@+id/btn_alldown"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginBottom="8dp"
@@ -531,8 +531,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.454" />
+            app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>

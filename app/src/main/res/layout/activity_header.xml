@@ -14,25 +14,19 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <!--<ImageView-->
-        <!--android:id="@+id/imageView"-->
-        <!--android:layout_width="231dp"-->
-        <!--android:layout_height="128dp"-->
-        <!--android:layout_marginBottom="16dp"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginLeft="8dp"-->
-        <!--android:layout_marginRight="8dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="16dp"-->
-        <!--android:contentDescription="@string/nav_header_desc"-->
-        <!--android:paddingTop="@dimen/nav_header_vertical_spacing"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintHorizontal_bias="0.503"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--app:layout_constraintVertical_bias="0.0"-->
-        <!--app:srcCompat="@drawable/logo" />-->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="231dp"
+        android:layout_height="128dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo" />
 
     <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->
@@ -46,13 +40,13 @@
         <!--app:layout_constraintVertical_bias="1.0">-->
 
 
-        <!--<Switch-->
-            <!--android:id="@+id/switch3"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:background="@color/black"-->
-            <!--android:text="On/Off Kompressor"-->
-            <!--android:textAppearance="@style/TextAppearance.AppCompat.Medium" />-->
+        <!--&lt;!&ndash;<Switch&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/switch3"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="@color/black"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:text="On/Off Kompressor"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:textAppearance="@style/TextAppearance.AppCompat.Medium" />&ndash;&gt;-->
     <!--</LinearLayout>-->
 
 </android.support.constraint.ConstraintLayout>

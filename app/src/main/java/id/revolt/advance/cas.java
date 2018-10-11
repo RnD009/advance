@@ -14,23 +14,23 @@ import android.widget.Toast;
 public class cas extends AppCompatActivity {
 
     private Button oke;
-    private CheckBox cb1;
-    private CheckBox cb2;
-    private CheckBox cb3;
+    private CheckBox ncb1;
+    private CheckBox ncb2;
+    private CheckBox ncb3;
 
 
     private View.OnClickListener oke1 = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-//            if (cb1.isChecked() && cb1.isChecked() && cb1.isChecked() &&){
-//
-//
-//            }
-            Intent as = new Intent();
-            as.setData(Uri.parse("<"));
-            Toast.makeText(cas.this, "Wait a Moment", Toast.LENGTH_SHORT).show();
-            cas.this.setResult( 1, as);
-            cas.this.finish();
+            if (ncb1.isChecked() && ncb2.isChecked() && ncb3.isChecked()){
+                Intent as = new Intent();
+                as.setData(Uri.parse("<"));
+                cas.this.setResult( 1, as);
+                finish();
+            }
+            else{
+                Toast.makeText(cas.this, "Please check all options", Toast.LENGTH_SHORT).show();
+            }
         }
     };
 
@@ -41,9 +41,9 @@ public class cas extends AppCompatActivity {
         setContentView(R.layout.activity_cas);
 
         this.oke = (Button) findViewById(R.id.btn_start);
-        this.cb1 = (CheckBox) findViewById(R.id.cb1);
-        this.cb2 = (CheckBox) findViewById(R.id.cb2);
-        this.cb3 = (CheckBox) findViewById(R.id.cb3);
+        this.ncb1 = (CheckBox) findViewById(R.id.cb1);
+        this.ncb2 = (CheckBox) findViewById(R.id.cb2);
+        this.ncb3 = (CheckBox) findViewById(R.id.cb3);
 
         this.oke.setOnClickListener(this.oke1);
 
