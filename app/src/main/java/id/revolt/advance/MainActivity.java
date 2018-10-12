@@ -62,6 +62,12 @@ public class MainActivity extends AppCompatActivity
 
     String d;
     private TextView e;
+    private TextView L1;
+    private TextView R1;
+    private TextView L2;
+    private TextView R2;
+    private TextView tvSW;
+
     boolean fail;
 
     BluetoothAdapter mBluetoothAdapter;
@@ -76,6 +82,11 @@ public class MainActivity extends AppCompatActivity
 
     volatile boolean stopWorker;
     boolean sukses;
+
+    boolean strL1;
+    boolean endl1;
+    int posL1;
+    int posL2;
 
 
     private View.OnTouchListener ta1 = new View.OnTouchListener() {
@@ -920,58 +931,88 @@ public class MainActivity extends AppCompatActivity
         }
     };
 
-    private View.OnClickListener Ocmem1 = new View.OnClickListener() {
+    private View.OnClickListener Opmem1 = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (btn_bt.isChecked()){
-                Toast.makeText(MainActivity.this, "Open memory 1", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "Open memory 1", Toast.LENGTH_SHORT).show();
+                try {
+                    Opmem1();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         }
     };
 
-    private View.OnClickListener Ocmem2 = new View.OnClickListener() {
+    private View.OnClickListener Opmem2 = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (btn_bt.isChecked()){
-                Toast.makeText(MainActivity.this, "Open memory 2", Toast.LENGTH_SHORT).show();
+               //Toast.makeText(MainActivity.this, "Open memory 2", Toast.LENGTH_SHORT).show();
+                try {
+                    Opmem2();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         }
     };
 
-    private View.OnClickListener Ocmem3 = new View.OnClickListener() {
+    private View.OnClickListener Opmem3 = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (btn_bt.isChecked()){
-                Toast.makeText(MainActivity.this, "Open memory 3", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "Open memory 3", Toast.LENGTH_SHORT).show();
+                try {
+                    Opmem3();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         }
     };
 
-    private View.OnLongClickListener Olcmem1 = new View.OnLongClickListener() {
+    private View.OnLongClickListener Svcmem1 = new View.OnLongClickListener() {
         @Override
         public boolean onLongClick(View v) {
             if (btn_bt.isChecked()) {
-                Toast.makeText(MainActivity.this, "Set memory 1", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Save memory 1", Toast.LENGTH_SHORT).show();
+                try {
+                    Svmem1();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
             return false;
         }
     };
 
-    private View.OnLongClickListener Olcmem2 = new View.OnLongClickListener() {
+    private View.OnLongClickListener Svcmem2 = new View.OnLongClickListener() {
         @Override
         public boolean onLongClick(View v) {
             if (btn_bt.isChecked()) {
-                Toast.makeText(MainActivity.this, "Set memory 2", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Save memory 2", Toast.LENGTH_SHORT).show();
+                try {
+                    Svmem2();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
             return false;
         }
     };
 
-    private View.OnLongClickListener Olcmem3 = new View.OnLongClickListener() {
+    private View.OnLongClickListener Svcmem3 = new View.OnLongClickListener() {
         @Override
         public boolean onLongClick(View v) {
             if (btn_bt.isChecked()) {
-                Toast.makeText(MainActivity.this, "Set memory 3", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Save memory 3", Toast.LENGTH_SHORT).show();
+                try {
+                    Svmem3();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
             return false;
         }
@@ -1002,6 +1043,14 @@ public class MainActivity extends AppCompatActivity
         this.a13 = (ImageButton) findViewById(R.id.all_up);
         this.a14 = (ImageButton) findViewById(R.id.all_down);
         this.e = (TextView) findViewById(R.id.e);
+        this.L1 = (TextView) findViewById(R.id.tv1);
+        this.R1 = (TextView) findViewById(R.id.tv2);
+        this.L2 = (TextView) findViewById(R.id.tv3);
+        this.R2 = (TextView) findViewById(R.id.tv4);
+        this.tvSW = (TextView) findViewById(R.id.tv5);
+
+
+
         this.btn_bt = (ToggleButton) findViewById(R.id.tg_bt);
         this.alldown = (ImageButton) findViewById(R.id.btn_alldown);
         this.mem1 = (ImageButton) findViewById(R.id.btn_mem1);
@@ -1009,13 +1058,13 @@ public class MainActivity extends AppCompatActivity
         this.mem3 = (ImageButton) findViewById(R.id.btn_mem3);
 
         this.alldown.setOnClickListener(this.alldown1);
-        this.mem1.setOnLongClickListener(this.Olcmem1);
-        this.mem2.setOnLongClickListener(this.Olcmem2);
-        this.mem3.setOnLongClickListener(this.Olcmem3);
+        this.mem1.setOnLongClickListener(this.Svcmem1);
+        this.mem2.setOnLongClickListener(this.Svcmem2);
+        this.mem3.setOnLongClickListener(this.Svcmem3);
 
-        this.mem1.setOnClickListener(this.Ocmem1);
-        this.mem2.setOnClickListener(this.Ocmem2);
-        this.mem3.setOnClickListener(this.Ocmem3);
+        this.mem1.setOnClickListener(this.Opmem1);
+        this.mem2.setOnClickListener(this.Opmem2);
+        this.mem3.setOnClickListener(this.Opmem3);
 
         this.mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (this.mBluetoothAdapter == null) {
@@ -1156,7 +1205,7 @@ public class MainActivity extends AppCompatActivity
 
     //onActifityResult
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1) {
+        if (requestCode == 1) { //login
             if (resultCode == -1) {
                 try {
                     this.d = data.getData().toString();
@@ -1175,7 +1224,7 @@ public class MainActivity extends AppCompatActivity
                 }
             }
 
-        } else if (requestCode == 2) {
+        } else if (requestCode == 2) { //cpass
             if (resultCode == -1) {
                 try {
                     this.a1.setEnabled(false);
@@ -1235,7 +1284,7 @@ public class MainActivity extends AppCompatActivity
                     e222.printStackTrace();
                 }
             }
-        } else if (requestCode == 4) {
+        } else if (requestCode == 4) { //cas
             if (resultCode == 1) {
                 try {
                     this.d = data.getData().toString();
@@ -1245,7 +1294,7 @@ public class MainActivity extends AppCompatActivity
                     e.printStackTrace();
                 }
             }
-        } else if (requestCode == 5) {
+        } else if (requestCode == 5) { //kompressor
             if (resultCode == 1) {
                 try {
                     this.d = data.getData().toString();
@@ -1350,6 +1399,7 @@ public class MainActivity extends AppCompatActivity
                             MainActivity.this.mmInputStream.read(packetBytes);
                             for (int i = 0; i < byteAvailable; i++) {
                                 byte b = packetBytes[i];
+
                                 if (b == (byte) 10) {
                                     byte[] encodedBytes = new byte[MainActivity.this.readBufferPosition];
                                     System.arraycopy(MainActivity.this.readBuffer, 0, encodedBytes, 0, encodedBytes.length);
@@ -1358,7 +1408,28 @@ public class MainActivity extends AppCompatActivity
                                     handler.post(new Runnable() {
                                         @Override
                                         public void run() {
-                                            MainActivity.this.e.setText(data);
+                                            //MainActivity.this.e.setText(data);
+                                            //System.out.println(data);
+//                                            String olah = data.toString();
+//                                            System.out.println(olah);
+                                            String[] separate = data.split(":");
+                                            separate[0] = separate[0].trim();
+                                            separate[1] = separate[1].trim();
+                                            separate[2] = separate[2].trim();
+                                            separate[3] = separate[3].trim();
+                                            separate[4] = separate[4].trim();
+                                            System.out.println(separate[0]);
+                                            System.out.println(separate[1]);
+                                            System.out.println(separate[2]);
+                                            System.out.println(separate[3]);
+                                            System.out.println(separate[4]);
+                                            MainActivity.this.L1.setText(separate[0]);
+                                            MainActivity.this.R1.setText(separate[1]);
+                                            MainActivity.this.L2.setText(separate[2]);
+                                            MainActivity.this.R2.setText(separate[3]);
+                                            MainActivity.this.tvSW.setText(separate[4]);
+
+
                                         }
                                     });
                                 } else {
@@ -1467,25 +1538,37 @@ public class MainActivity extends AppCompatActivity
         this.mmOutputStream.write("y".getBytes());
     }
 
-//    void back() throws IOException {
-//        this.mmOutputStream.write("w".getBytes());
-//    }
-
     void ad() throws IOException {
         this.mmOutputStream.write(";".getBytes());
     }
 
-    void mem1() throws IOException {
+    void Svmem1() throws IOException {
         this.mmOutputStream.write("[".getBytes());
     }
 
-    void mem2() throws IOException {
+    void Svmem2() throws IOException {
         this.mmOutputStream.write("]".getBytes());
     }
 
-    void mem3() throws IOException {
+    void Svmem3() throws IOException {
         this.mmOutputStream.write(">".getBytes());
     }
+
+    void Opmem1() throws IOException {
+        this.mmOutputStream.write("{".getBytes());
+    }
+
+    void Opmem2() throws IOException {
+        this.mmOutputStream.write("}".getBytes());
+    }
+
+    void Opmem3() throws IOException {
+        this.mmOutputStream.write("~".getBytes());
+    }
+
+//    void back() throws IOException {
+//        this.mmOutputStream.write("w".getBytes());
+//    }
 
 
     void closeBT() throws IOException {
