@@ -934,7 +934,7 @@ public class MainActivity extends AppCompatActivity
     private View.OnClickListener Opmem1 = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (btn_bt.isChecked()){
+            if (btn_bt.isChecked()) {
                 //Toast.makeText(MainActivity.this, "Open memory 1", Toast.LENGTH_SHORT).show();
                 try {
                     Opmem1();
@@ -948,8 +948,8 @@ public class MainActivity extends AppCompatActivity
     private View.OnClickListener Opmem2 = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (btn_bt.isChecked()){
-               //Toast.makeText(MainActivity.this, "Open memory 2", Toast.LENGTH_SHORT).show();
+            if (btn_bt.isChecked()) {
+                //Toast.makeText(MainActivity.this, "Open memory 2", Toast.LENGTH_SHORT).show();
                 try {
                     Opmem2();
                 } catch (IOException e1) {
@@ -962,7 +962,7 @@ public class MainActivity extends AppCompatActivity
     private View.OnClickListener Opmem3 = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (btn_bt.isChecked()){
+            if (btn_bt.isChecked()) {
                 //Toast.makeText(MainActivity.this, "Open memory 3", Toast.LENGTH_SHORT).show();
                 try {
                     Opmem3();
@@ -1048,7 +1048,6 @@ public class MainActivity extends AppCompatActivity
         this.L2 = (TextView) findViewById(R.id.tv3);
         this.R2 = (TextView) findViewById(R.id.tv4);
         this.tvSW = (TextView) findViewById(R.id.tv5);
-
 
 
         this.btn_bt = (ToggleButton) findViewById(R.id.tg_bt);
@@ -1408,6 +1407,9 @@ public class MainActivity extends AppCompatActivity
                                     handler.post(new Runnable() {
                                         @Override
                                         public void run() {
+                                            System.out.println(data);
+
+
                                             //MainActivity.this.e.setText(data);
                                             //System.out.println(data);
 //                                            String olah = data.toString();
@@ -1418,16 +1420,18 @@ public class MainActivity extends AppCompatActivity
                                             separate[2] = separate[2].trim();
                                             separate[3] = separate[3].trim();
                                             separate[4] = separate[4].trim();
+                                            //separate[5] = separate[5].trim();
                                             System.out.println(separate[0]);
                                             System.out.println(separate[1]);
                                             System.out.println(separate[2]);
                                             System.out.println(separate[3]);
-                                            System.out.println(separate[4]);
+                                            //System.out.println(separate[4]);
                                             MainActivity.this.L1.setText(separate[0]);
                                             MainActivity.this.R1.setText(separate[1]);
                                             MainActivity.this.L2.setText(separate[2]);
                                             MainActivity.this.R2.setText(separate[3]);
-                                            MainActivity.this.tvSW.setText(separate[4]);
+                                            MainActivity.this.tvSW.setText(separate[4] + " psi");
+                                            //MainActivity.this.e.setText(separate[5]);
 
 
                                         }
