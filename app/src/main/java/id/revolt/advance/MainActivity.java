@@ -1409,29 +1409,24 @@ public class MainActivity extends AppCompatActivity
                                         public void run() {
                                             System.out.println(data);
 
-
-                                            //MainActivity.this.e.setText(data);
-                                            //System.out.println(data);
-//                                            String olah = data.toString();
-//                                            System.out.println(olah);
                                             String[] separate = data.split(":");
                                             separate[0] = separate[0].trim();
                                             separate[1] = separate[1].trim();
                                             separate[2] = separate[2].trim();
                                             separate[3] = separate[3].trim();
                                             separate[4] = separate[4].trim();
-                                            //separate[5] = separate[5].trim();
+
                                             System.out.println(separate[0]);
                                             System.out.println(separate[1]);
                                             System.out.println(separate[2]);
                                             System.out.println(separate[3]);
-                                            //System.out.println(separate[4]);
+
                                             MainActivity.this.L1.setText(separate[0]);
                                             MainActivity.this.R1.setText(separate[1]);
                                             MainActivity.this.L2.setText(separate[2]);
                                             MainActivity.this.R2.setText(separate[3]);
                                             MainActivity.this.tvSW.setText(separate[4] + " psi");
-                                            //MainActivity.this.e.setText(separate[5]);
+
 
 
                                         }
