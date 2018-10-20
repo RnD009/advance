@@ -32,6 +32,9 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.zip.CheckedOutputStream;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -40,33 +43,33 @@ public class MainActivity extends AppCompatActivity
     public Vibrator h;
 
     //button up-down
-    private ImageButton a1;
-    private ImageButton a2;
-    private ImageButton a3;
-    private ImageButton a4;
-    private ImageButton a5;
-    private ImageButton a6;
-    private ImageButton a7;
-    private ImageButton a8;
-    private ImageButton a9;
-    private ImageButton a10;
-    private ImageButton a11;
-    private ImageButton a12;
-    private ImageButton a13;
-    private ImageButton a14;
-    private ToggleButton btn_bt;
-    private ImageButton alldown;
-    private ImageButton mem1;
-    private ImageButton mem2;
-    private ImageButton mem3;
+    @BindView(R.id.front_left_up) ImageButton a1;
+    @BindView(R.id.front_right_up) ImageButton a2;
+    @BindView(R.id.front_left_down) ImageButton a3;
+    @BindView(R.id.front_right_down) ImageButton a4;
+    @BindView(R.id.rear_left_up) ImageButton a5;
+    @BindView(R.id.rear_right_up) ImageButton a6;
+    @BindView(R.id.rear_left_down) ImageButton a7;
+    @BindView(R.id.rear_right_down) ImageButton a8;
+    @BindView(R.id.front_all_up) ImageButton a9;
+    @BindView(R.id.front_all_down) ImageButton a10;
+    @BindView(R.id.rear_all_up) ImageButton a11;
+    @BindView(R.id.rear_all_down) ImageButton a12;
+    @BindView(R.id.all_up) ImageButton a13;
+    @BindView(R.id.all_down) ImageButton a14;
+    @BindView(R.id.tg_bt) ToggleButton btn_bt;
+    @BindView(R.id.btn_alldown) ImageButton alldown;
+    @BindView(R.id.btn_mem1) ImageButton mem1;
+    @BindView(R.id.btn_mem2) ImageButton mem2;
+    @BindView(R.id.btn_mem3) ImageButton mem3;
 
     String d;
-    private TextView e;
-    private TextView L1;
-    private TextView R1;
-    private TextView L2;
-    private TextView R2;
-    private TextView tvSW;
+    @BindView(R.id.e) TextView e;
+    @BindView(R.id.tv1) TextView L1;
+    @BindView(R.id.tv2) TextView R1;
+    @BindView(R.id.tv3) TextView L2;
+    @BindView(R.id.tv4) TextView R2;
+    @BindView(R.id.tv5) TextView tvSW;
 
     boolean fail;
 
@@ -1023,6 +1026,8 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ButterKnife.bind(this);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);

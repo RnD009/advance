@@ -10,11 +10,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class login extends AppCompatActivity {
 
-    private Button cancel;
-    private Button oke;
-    private TextView pswd;
+    @BindView(R.id.btn_cancel) Button cancel;
+    @BindView(R.id.btn_ok) Button oke;
+    @BindView(R.id.txt_password) TextView pswd;
 
     private View.OnClickListener cancel1 = new View.OnClickListener() {
         @Override
@@ -40,6 +43,8 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        ButterKnife.bind(this);
 
         this.oke = (Button) findViewById(R.id.btn_ok);
         this.cancel = (Button) findViewById(R.id.btn_cancel);

@@ -10,11 +10,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class changepassword extends AppCompatActivity {
     boolean CheckEditText;
-    private Button cancel;
-    private Button oke;
-    private TextView cpswd;
+    @BindView(R.id.btn_cancel) Button cancel;
+    @BindView(R.id.btn_ok) Button oke;
+    @BindView(R.id.txt_cpassword) TextView cpswd;
 
     private View.OnClickListener cancel1 = new View.OnClickListener() {
         @Override
@@ -48,6 +51,8 @@ public class changepassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_changepassword);
+
+        ButterKnife.bind(this);
 
         this.oke = (Button) findViewById(R.id.btn_ok);
         this.cancel = (Button) findViewById(R.id.btn_cancel);

@@ -10,6 +10,8 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.ToggleButton;
 
+import butterknife.ButterKnife;
+
 public class setup extends AppCompatActivity {
     private Switch sw1;
     private Switch sw2;
@@ -40,6 +42,8 @@ public class setup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
+
+        ButterKnife.bind(this);
 
         this.sw1 = (Switch) findViewById(R.id.sw1);
         this.sw2 = (Switch) findViewById(R.id.sw2);
