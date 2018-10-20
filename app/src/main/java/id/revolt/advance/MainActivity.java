@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity
 
     public Vibrator h;
 
-    //button up-down
     @BindView(R.id.front_left_up) ImageButton a1;
     @BindView(R.id.front_right_up) ImageButton a2;
     @BindView(R.id.front_left_down) ImageButton a3;
@@ -81,15 +80,8 @@ public class MainActivity extends AppCompatActivity
     private Set<BluetoothDevice> pairedDevices;
     byte[] readBuffer;
     int readBufferPosition;
-    private ImageButton scan;
-
     volatile boolean stopWorker;
     boolean sukses;
-
-    boolean strL1;
-    boolean endl1;
-    int posL1;
-    int posL2;
 
 
     private View.OnTouchListener ta1 = new View.OnTouchListener() {
@@ -893,7 +885,6 @@ public class MainActivity extends AppCompatActivity
 
     Thread workerThread;
 
-    //onDestroy
     public void onDestroy() {
         super.onDestroy();
         if (this.sukses) {
@@ -1021,8 +1012,7 @@ public class MainActivity extends AppCompatActivity
         }
     };
 
-    //    @Override
-    @SuppressLint("WrongViewCast")
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -1145,10 +1135,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    //end onCreate
-
-
-    //menu
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -1207,7 +1193,6 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    //onActifityResult
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1) { //login
             if (resultCode == -1) {
@@ -1570,10 +1555,6 @@ public class MainActivity extends AppCompatActivity
         this.mmOutputStream.write("~".getBytes());
     }
 
-//    void back() throws IOException {
-//        this.mmOutputStream.write("w".getBytes());
-//    }
-
 
     void closeBT() throws IOException {
         this.e.setText(BuildConfig.FLAVOR);
@@ -1585,6 +1566,5 @@ public class MainActivity extends AppCompatActivity
         Toast.makeText(this, "Bluetooth Disconnect", Toast.LENGTH_SHORT).show();
         this.e.setText(BuildConfig.FLAVOR);
     }
-
 
 }
