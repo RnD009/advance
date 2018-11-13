@@ -1328,24 +1328,7 @@ public class MainActivity extends AppCompatActivity
                     e.printStackTrace();
                 }
             }
-//          else if (resultCode == 3) {
-//                try {
-//                    this.d = data.getData().toString();
-//                    //Toast.makeText(MainActivity.this, "Compressor OFF", Toast.LENGTH_SHORT).show();
-//                    sw();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//            else if (resultCode == 4) {
-//                try {
-//                    this.d = data.getData().toString();
-//                    //Toast.makeText(MainActivity.this, "Compressor OFF", Toast.LENGTH_SHORT).show();
-//                    sw();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
+
         }
 
         else if (requestCode != 3) {
